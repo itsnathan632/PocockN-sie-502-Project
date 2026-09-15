@@ -1,0 +1,6 @@
+@dc:title "My Project Vocabulary Bundle"
+@dc:description "A bundle that includes the vocabulary for the University Course Registration and Degree Planning project."
+vocabulary bundle <http://www.example.com/method/bundle#> as method-bundle {
+    includes <http://purl.org/dc/elements/1.1/> as dc
+    includes <http://www.example.com/method/vocabulary#>
+}

@@ -1,0 +1,138 @@
+@dc:title "My Project Description"
+@dc:description "The My Project ontologies."
+description <http://www.example.com/project/description#> as myproject-desc {
+    uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <http://www.example.com/method/vocabulary#> as method
+
+    instance Nathan : method:Student [
+        method:name "Nathan Pocock"
+        method:studentID "S001"
+        method:pursues InformationSystems
+        method:hasPlan NathanPlan
+        method:hasEnrollment NathanIS101Enrollment
+        method:hasEnrollment NathanCollegeAlgebraEnrollment
+        method:hasEnrollment NathanDataAnalyticsEnrollment
+    ]
+
+    instance Alex : method:Student [
+        method:name "Alex Johnson"
+        method:studentID "S002"
+        method:pursues InformationSystems
+        method:hasPlan AlexPlan
+        method:hasEnrollment AlexDataAnalyticsEnrollment
+    ]
+
+    instance DrSmith : method:AcademicAdvisor [
+        method:name "Dr. Sarah Smith"
+    ]
+
+    instance PrerequisiteConstraint : method:RegistrationConstraint [
+        method:name "Prerequisite Constraint"
+    ]
+
+    instance InformationSystems : method:DegreeProgram [
+        method:programName "Information Systems"
+        method:hasRequirement CoreRequirement1
+        method:hasRequirement ElectiveRequirement1
+    ]
+
+    instance CoreRequirement1 : method:CourseRequirement [
+        method:name "Introduction to Information Systems Requirement"
+        method:satisfiedBy IntroInformationSystems
+    ]
+
+    instance ElectiveRequirement1 : method:ElectiveRequirement [
+        method:name "Data Analytics Elective Requirement"
+        method:satisfiedBy DataAnalytics
+    ]
+
+    instance IntroInformationSystems : method:Course [
+        method:courseCode "IS 101"
+        method:title "Introduction to Information Systems"
+        method:creditHours 3
+        method:hasOffering IS101Fall2026
+        method:hasOffering IS101Spring2027
+        method:hasPrerequisite CollegeAlgebra
+    ]
+
+    instance CollegeAlgebra : method:Course [
+        method:courseCode "MATH 120"
+        method:title "College Algebra"
+        method:creditHours 3
+        method:hasOffering CollegeAlgebraSpring2027
+        method:hasOffering CollegeAlgebraFall2026
+    ]
+
+    instance DataAnalytics : method:Course [
+        method:courseCode "IS 210"
+        method:title "Introduction to Data Analytics"
+        method:creditHours 3
+        method:hasOffering DataAnalyticsFall2026
+        method:hasOffering DataAnalyticsSpring2027
+    ]
+
+    instance DataAnalyticsFall2026 : method:CourseOffering [
+        method:offeredIn Fall2026
+    ]
+
+    instance DataAnalyticsSpring2027 : method:CourseOffering [
+        method:offeredIn Spring2027
+    ]
+
+    instance Fall2026 : method:AcademicTerm [
+        method:termName "Fall 2026"
+    ]
+
+    instance Spring2027 : method:AcademicTerm [
+        method:termName "Spring 2027"
+    ]
+
+    instance CollegeAlgebraSpring2027 : method:CourseOffering [
+        method:offeredIn Spring2027
+    ]
+
+    instance CollegeAlgebraFall2026 : method:CourseOffering [
+        method:offeredIn Fall2026
+    ]
+
+    instance IS101Fall2026 : method:CourseOffering [
+        method:offeredIn Fall2026
+    ]
+
+    instance IS101Spring2027 : method:CourseOffering [
+        method:offeredIn Spring2027
+    ]
+
+    instance NathanPlan : method:AcademicPlan [
+        method:catalogYear 2026
+        method:plansCourse IntroInformationSystems
+        method:plansCourse DataAnalytics
+        method:plansCourse CollegeAlgebra
+    ]
+
+    instance AlexPlan : method:AcademicPlan [
+        method:catalogYear 2026
+        method:plansCourse DataAnalytics
+    ]
+
+    instance NathanIS101Enrollment : method:Enrollment [
+        method:forOffering IS101Fall2026
+        method:enrollmentStatus "Completed"
+    ]
+
+    instance NathanCollegeAlgebraEnrollment : method:Enrollment [
+        method:forOffering CollegeAlgebraFall2026
+        method:enrollmentStatus "Completed"
+    ]
+
+    instance NathanDataAnalyticsEnrollment : method:Enrollment [
+        method:forOffering DataAnalyticsSpring2027
+        method:enrollmentStatus "Planned"
+    ]
+
+    instance AlexDataAnalyticsEnrollment : method:Enrollment [
+        method:forOffering DataAnalyticsFall2026
+        method:enrollmentStatus "Enrolled"
+    ]
+
+}

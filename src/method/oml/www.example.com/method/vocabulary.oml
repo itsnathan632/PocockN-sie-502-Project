@@ -1,0 +1,183 @@
+@dc:title "My Project Vocabulary"
+@dc:description "The My Project ontologies."
+vocabulary <http://www.example.com/method/vocabulary#> as method {
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+    @dc:description "An entity that has a name."
+    aspect Named
+
+    @dc:description "A person involved in university academic planning."
+    concept Person < Named
+
+    @dc:description "An undergraduate student pursuing a degree."
+    concept Student < Person
+    
+    @dc:description "An academic advisor who helps students plan their degree."
+    concept AcademicAdvisor < Person
+
+    @dc:description "An academic program offered by a university."
+    concept AcademicProgram
+
+    @dc:description "An undergraduate degree program with defined graduation requirements."
+    concept DegreeProgram < AcademicProgram
+
+    @dc:description "A requirement that must be satisfied to complete a degree."
+    concept DegreeRequirement < Named
+
+    @dc:description "A requirement satisfied by completing a particular course."
+    concept CourseRequirement < DegreeRequirement
+
+    @dc:description "A requirement satisfied by selecting from multiple acceptable courses."
+    concept ElectiveRequirement < DegreeRequirement
+
+    @dc:description "An academic course that may contribute to a degree program."
+    concept Course
+
+    @dc:description "A course that has at least one prerequisite."
+    concept CourseWithPrerequisite = Course [
+        restricts hasPrerequisite to min 1
+    ]
+
+    @dc:description "A particular offering of a course during an academic term."
+    concept CourseOffering
+
+    @dc:description "A period during which university courses are offered."
+    concept AcademicTerm
+
+    @dc:description "A student's proposed or current sequence of courses."
+    concept AcademicPlan
+
+    @dc:description "A student's participation in a course."
+    concept Enrollment
+
+    @dc:description "A rule that restricts whether or when a student may register for a course."
+    concept RegistrationConstraint < Named
+
+    @dc:description "The name of a named entity."
+    scalar property name [
+        domain Named
+        range xsd:string
+    ]
+
+    @dc:description "The unique identifier assigned to a student."
+    scalar property studentID [
+        domain Student
+        range xsd:string
+    ]
+
+    @dc:description "The catalog year associated with a student's academic plan."
+    scalar property catalogYear [
+    domain AcademicPlan
+    range xsd:integer
+    functional
+    ]
+
+    @dc:description "The name of a degree program."
+    scalar property programName [
+        domain DegreeProgram
+        range xsd:string
+    ]
+
+    @dc:description "The identifying code assigned to a course."
+    scalar property courseCode [
+        domain Course
+        range xsd:string
+    ]
+
+    @dc:description "The title of a course."
+    scalar property title [
+        domain Course
+        range xsd:string
+    ]
+
+    @dc:description "The number of credit hours assigned to a course."
+    scalar property creditHours [
+        domain Course
+        range xsd:integer
+    ]
+
+    @dc:description "The status of a student's enrollment in a course."
+    scalar property enrollmentStatus [
+        domain Enrollment
+        range EnrollmentStatus
+        functional
+    ]
+
+    @dc:description "The name of an academic term."
+    scalar property termName [
+        domain AcademicTerm
+        range xsd:string
+    ]
+
+    @dc:description "The status of a students enrollment in a course."
+    scalar EnrollmentStatus [
+        oneOf "Planned", "Enrolled", "Completed"
+    ]
+
+    @dc:description "Indicates the degree program pursued by a student."
+    relation pursues [
+        from Student
+        to DegreeProgram
+    ]
+
+    @dc:description "Indicates a requirement belonging to a degree program."
+    relation hasRequirement [
+        from DegreeProgram
+        to DegreeRequirement
+    ]
+
+    @dc:description "Identifies a course that can satisfy a degree requirement."
+    relation satisfiedBy [
+        from DegreeRequirement
+        to Course
+    ]
+
+    @dc:description "Indicates a particular offering of a course."
+    relation hasOffering [
+        from Course
+        to CourseOffering
+        inverse functional
+    ]
+
+    @dc:description "Indicates the academic term in which a course offering occurs."
+    relation offeredIn [
+        from CourseOffering
+        to AcademicTerm
+        functional
+    ]
+
+    @dc:description "Indicates the academic plan associated with a student."
+    relation hasPlan [
+        from Student
+        to AcademicPlan
+    ]
+
+    @dc:description "Identifies a course included in an academic plan."
+    relation plansCourse [
+        from AcademicPlan
+        to Course
+    ]
+
+    @dc:description "Indicates an enrollment associated with a student."
+    relation hasEnrollment [
+        from Student
+        to Enrollment
+    ]
+
+    @dc:description "Indicates the course offering associated with an enrollment."
+    relation forOffering [
+        from Enrollment
+        to CourseOffering
+        functional
+    ]
+
+    @dc:description "Indicates that one course must be completed before another course."
+    relation hasPrerequisite [
+        from Course
+        to Course
+        irreflexive
+        asymmetric
+    ]
+
+}
