@@ -1,0 +1,31 @@
+@dc:title "My Project Course Offerings"
+@dc:description "Course offerings and the academic terms in which they occur."
+description <http://www.example.com/project/offerings#> as offerings {
+    uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <http://www.example.com/method/vocabulary#> as method
+    extends <http://www.example.com/project/description#> as project
+
+    ref instance project:DataAnalyticsFall2026 : method:CourseOffering [
+        method:offeredIn project:Fall2026
+    ]
+
+    ref instance project:DataAnalyticsSpring2027 : method:CourseOffering [
+        method:offeredIn project:Spring2027
+    ]
+
+    ref instance project:CollegeAlgebraSpring2027 : method:CourseOffering [
+        method:offeredIn project:Spring2027
+    ]
+
+    ref instance project:CollegeAlgebraFall2026 : method:CourseOffering [
+        method:offeredIn project:Fall2026
+    ]
+
+    ref instance project:IS101Fall2026 : method:CourseOffering [
+        method:offeredIn project:Fall2026
+    ]
+
+    ref instance project:IS101Spring2027 : method:CourseOffering [
+        method:offeredIn project:Spring2027
+    ]
+}

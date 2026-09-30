@@ -1,0 +1,23 @@
+@dc:title "My Project Requirements"
+@dc:description "Degree requirements for the My Project university course registration and degree-planning model."
+description <http://www.example.com/project/requirements#> as requirements {
+    uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <http://www.example.com/method/vocabulary#> as method
+    extends <http://www.example.com/project/description#> as project
+
+    ref instance project:InformationSystems : method:DegreeProgram [
+        method:programName "Information Systems"
+        method:hasRequirement project:CoreRequirement1
+        method:hasRequirement project:ElectiveRequirement1
+    ]
+
+    ref instance project:CoreRequirement1 : method:CourseRequirement [
+        method:name "Introduction to Information Systems Requirement"
+        method:satisfiedBy project:IntroInformationSystems
+    ]
+
+    ref instance project:ElectiveRequirement1 : method:ElectiveRequirement [
+        method:name "Data Analytics Elective Requirement"
+        method:satisfiedBy project:DataAnalytics
+    ]
+}

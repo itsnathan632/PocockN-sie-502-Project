@@ -1,7 +1,11 @@
 @dc:title "My Project Description Bundle"
-@dc:description "A bundle that includes the description for the University Course Registration and Degree Planning project."
+@dc:description "A bundle that includes the descriptions for the University Course Registration and Degree Planning project."
 description bundle <http://www.example.com/project/bundle#> as myproject-bundle {
     uses <http://purl.org/dc/elements/1.1/> as dc
     uses <http://www.example.com/method/bundle#>
     includes <http://www.example.com/project/description#>
+    includes <http://www.example.com/project/requirements#>
+    includes <http://www.example.com/project/offerings#>
+    includes <http://www.example.com/project/plans#>
+    includes <http://www.example.com/project/enrollments#>
 }

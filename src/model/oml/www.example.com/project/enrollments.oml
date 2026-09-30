@@ -1,0 +1,27 @@
+@dc:title "My Project Enrollments"
+@dc:description "Student enrollments and their associated course offerings."
+description <http://www.example.com/project/enrollments#> as enrollments {
+    uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <http://www.example.com/method/vocabulary#> as method
+    extends <http://www.example.com/project/description#> as project
+
+    ref instance project:NathanIS101Enrollment : method:Enrollment [
+        method:forOffering project:IS101Fall2026
+        method:enrollmentStatus "Completed"
+    ]
+
+    ref instance project:NathanCollegeAlgebraEnrollment : method:Enrollment [
+        method:forOffering project:CollegeAlgebraFall2026
+        method:enrollmentStatus "Completed"
+    ]
+
+    ref instance project:NathanDataAnalyticsEnrollment : method:Enrollment [
+        method:forOffering project:DataAnalyticsSpring2027
+        method:enrollmentStatus "Planned"
+    ]
+
+    ref instance project:AlexDataAnalyticsEnrollment : method:Enrollment [
+        method:forOffering project:DataAnalyticsFall2026
+        method:enrollmentStatus "Enrolled"
+    ]
+}

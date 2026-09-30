@@ -1,0 +1,19 @@
+@dc:title "My Project Academic Plans"
+@dc:description "Academic plans and the courses included in each plan."
+description <http://www.example.com/project/plans#> as plans {
+    uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <http://www.example.com/method/vocabulary#> as method
+    extends <http://www.example.com/project/description#> as project
+
+    ref instance project:NathanPlan : method:AcademicPlan [
+        method:catalogYear 2026
+        method:plansCourse project:IntroInformationSystems
+        method:plansCourse project:DataAnalytics
+        method:plansCourse project:CollegeAlgebra
+    ]
+
+    ref instance project:AlexPlan : method:AcademicPlan [
+        method:catalogYear 2026
+        method:plansCourse project:DataAnalytics
+    ]
+}
