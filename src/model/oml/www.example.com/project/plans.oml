@@ -14,6 +14,7 @@ description <http://www.example.com/project/plans#> as plans {
 
     ref instance project:AlexPlan : method:AcademicPlan [
         method:catalogYear 2026
+        method:plansCourse project:IntroInformationSystems
         method:plansCourse project:DataAnalytics
     ]
 }

@@ -67,8 +67,10 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:courseCode "IS 210"
         method:title "Introduction to Data Analytics"
         method:creditHours 3
+        method:hasPrerequisite IntroInformationSystems
         method:hasOffering DataAnalyticsFall2026
         method:hasOffering DataAnalyticsSpring2027
+        method:hasOffering DataAnalyticsSummer2027
     ]
 
     instance DataAnalyticsFall2026 : method:CourseOffering [
@@ -79,12 +81,20 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:offeredIn Spring2027
     ]
 
+    instance DataAnalyticsSummer2027 : method:CourseOffering [
+        method:offeredIn Summer2027
+    ]
+
     instance Fall2026 : method:AcademicTerm [
         method:termName "Fall 2026"
     ]
 
     instance Spring2027 : method:AcademicTerm [
         method:termName "Spring 2027"
+    ]
+
+    instance Summer2027 : method:AcademicTerm [
+        method:termName "Summer 2027"
     ]
 
     instance CollegeAlgebraSpring2027 : method:CourseOffering [
@@ -112,6 +122,7 @@ description <http://www.example.com/project/description#> as myproject-desc {
 
     instance AlexPlan : method:AcademicPlan [
         method:catalogYear 2026
+        method:plansCourse IntroInformationSystems
         method:plansCourse DataAnalytics
     ]
 

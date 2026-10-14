@@ -13,6 +13,10 @@ description <http://www.example.com/project/offerings#> as offerings {
         method:offeredIn project:Spring2027
     ]
 
+    ref instance project:DataAnalyticsSummer2027 : method:CourseOffering [
+        method:offeredIn project:Summer2027
+    ]
+
     ref instance project:CollegeAlgebraSpring2027 : method:CourseOffering [
         method:offeredIn project:Spring2027
     ]
