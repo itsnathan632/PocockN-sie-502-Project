@@ -1,0 +1,13 @@
+
+description <http://www.example.com/project/codegen/configs#> as configs {
+
+    uses <http://opencaesar.io/codegen#> as codegen
+
+    extends <http://www.example.com/method/codegen/academicplan#> as academicplan
+
+    instance academicPlanReport : codegen:Config [
+        codegen:spec academicplan:AcademicPlanSpec
+        codegen:context "http://www.example.com/project/bundle"
+        codegen:binding [codegen:key "path" codegen:value "build/docs"]
+    ]
+}

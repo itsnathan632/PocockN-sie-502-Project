@@ -1,0 +1,65 @@
+
+description <http://www.example.com/method/codegen/academicplan#> as academicplan {
+
+    uses <http://opencaesar.io/codegen#> as codegen
+
+    instance AcademicPlanSpec : codegen:Spec [
+        codegen:construct """
+            PREFIX codegen: <http://opencaesar.io/codegen#>
+            PREFIX method: <http://www.example.com/method/vocabulary#>
+            PREFIX templates: <http://www.example.com/method/codegen/academicplan#>
+
+            CONSTRUCT {
+                ?file a codegen:File ;
+                    codegen:path "${path}/AcademicPlans.md" ;
+                    codegen:template templates:AcademicPlanTemplate ;
+                    codegen:root ?plan .
+
+                ?plan a method:AcademicPlan ;
+                    method:catalogYear ?year ;
+                    method:plansCourse ?course .
+
+                ?course a method:Course ;
+                    method:courseCode ?code ;
+                    method:title ?title ;
+                    method:hasPrerequisite ?prerequisite .
+
+                ?prerequisite a method:Course ;
+                    method:courseCode ?prerequisiteCode .
+            }
+            WHERE {
+                BIND(IRI("urn:academic-plans-report") AS ?file)
+
+                ?plan a method:AcademicPlan ;
+                    method:plansCourse ?course .
+
+                OPTIONAL { ?plan method:catalogYear ?year }
+                OPTIONAL { ?course method:courseCode ?code }
+                OPTIONAL { ?course method:title ?title }
+                OPTIONAL { ?course method:hasPrerequisite ?prerequisite .
+                           OPTIONAL { ?prerequisite method:courseCode ?prerequisiteCode }
+                }
+            }
+        """
+        codegen:parameter "path"
+    ]
+
+    instance AcademicPlanTemplate : codegen:Template [
+        codegen:body """
+            # Academic Planning Report
+
+            {% for plan in objects(file, "codegen:root") %}
+            ## Academic Plan
+            Catalog Year: {{ object(plan, "method:catalogYear") }}
+
+            **Planned Courses:**
+            {% for course in objects(plan, "method:plansCourse") %}
+            - {{ object(course, "method:courseCode") }}: {{ object(course, "method:title") }}
+              {% for prerequisite in objects(course, "method:hasPrerequisite") %}
+              - Prerequisite: {{ object(prerequisite, "method:courseCode") }}
+              {% endfor %}
+            {% endfor %}
+            {% endfor %}
+        """
+    ]
+}
