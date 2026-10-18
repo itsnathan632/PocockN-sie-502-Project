@@ -1,5 +1,12 @@
 # University Course Registration and Degree Planning
 
+[![CI](https://github.com/itsnathan632/PocockN-sie-502-Project/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/itsnathan632/PocockN-sie-502-Project/actions/workflows/ci.yml)
+[![CD](https://github.com/itsnathan632/PocockN-sie-502-Project/actions/workflows/cd.yml/badge.svg)](https://github.com/itsnathan632/PocockN-sie-502-Project/actions/workflows/cd.yml)
+
+**Latest release:** [v1.0.0](https://github.com/itsnathan632/PocockN-sie-502-Project/releases/tag/v1.0.0)
+
+**Live documentation:** [Academic Planning Methodology](https://itsnathan632.github.io/PocockN-sie-502-Project/www.example.com/project/academic-plan.html)
+
 ## Model Summary
 
 This ontology models the academic planning and course registration process for undergraduate students. 
