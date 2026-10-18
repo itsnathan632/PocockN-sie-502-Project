@@ -55,7 +55,7 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:hasPrerequisite CollegeAlgebra
     ]
 
-    instance CollegeAlgebra : method:CourseWithPrerequisite [
+    instance CollegeAlgebra : method:Course [
         method:courseCode "MATH 120"
         method:title "College Algebra"
         method:creditHours 3
@@ -115,6 +115,7 @@ description <http://www.example.com/project/description#> as myproject-desc {
 
     instance NathanPlan : method:AcademicPlan [
         method:catalogYear 2026
+        method:catalogYear 2027
         method:plansCourse IntroInformationSystems
         method:plansCourse DataAnalytics
         method:plansCourse CollegeAlgebra
