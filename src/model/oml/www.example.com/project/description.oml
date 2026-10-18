@@ -146,4 +146,6 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:enrollmentStatus "Enrolled"
     ]
 
+    THIS_IS_AN_INTENTIONAL_LINT_ERROR
+
 }
