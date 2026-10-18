@@ -68,6 +68,7 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:title "Introduction to Data Analytics"
         method:creditHours 3
         method:hasPrerequisite IntroInformationSystems
+        method:hasPrerequisite DataAnalytics
         method:hasOffering DataAnalyticsFall2026
         method:hasOffering DataAnalyticsSpring2027
         method:hasOffering DataAnalyticsSummer2027
@@ -115,7 +116,6 @@ description <http://www.example.com/project/description#> as myproject-desc {
 
     instance NathanPlan : method:AcademicPlan [
         method:catalogYear 2026
-        method:catalogYear 2027
         method:plansCourse IntroInformationSystems
         method:plansCourse DataAnalytics
         method:plansCourse CollegeAlgebra
