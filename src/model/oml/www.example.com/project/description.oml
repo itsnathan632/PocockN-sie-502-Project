@@ -68,7 +68,6 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:title "Introduction to Data Analytics"
         method:creditHours 3
         method:hasPrerequisite IntroInformationSystems
-        method:hasPrerequisite DataAnalytics
         method:hasOffering DataAnalyticsFall2026
         method:hasOffering DataAnalyticsSpring2027
         method:hasOffering DataAnalyticsSummer2027
