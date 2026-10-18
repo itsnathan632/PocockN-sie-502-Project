@@ -55,7 +55,7 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:hasPrerequisite CollegeAlgebra
     ]
 
-    instance CollegeAlgebra : method:Course [
+    instance CollegeAlgebra : method:CourseWithPrerequisite [
         method:courseCode "MATH 120"
         method:title "College Algebra"
         method:creditHours 3
@@ -145,7 +145,5 @@ description <http://www.example.com/project/description#> as myproject-desc {
         method:forOffering DataAnalyticsFall2026
         method:enrollmentStatus "Enrolled"
     ]
-
-    THIS_IS_AN_INTENTIONAL_LINT_ERROR
 
 }
