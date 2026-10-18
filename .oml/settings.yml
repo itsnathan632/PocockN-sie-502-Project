@@ -31,3 +31,7 @@ pack:
 # defaults:
 #   export: -o build/owl
 #   reason: -o build/owl -t
+
+# Week 8: GitHub Pages website rendering
+defaults:
+  render: -m src/model/md -b build/web -c src/model/oml/www.example.com/project/bundle.oml
